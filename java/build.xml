@@ -1,0 +1,20 @@
+<project id="fie-generator" default="build">
+    <property name="jar.file" value="file-splitter.jar" />
+
+    <target name="build">
+        <mkdir dir=".temp" />
+        <javac srcdir="src" destdir=".temp" debug="on" source="1.5"
+                 optimize="true" />
+
+        <jar basedir=".temp" destfile="${jar.file}">
+            <manifest >
+                <attribute name="Main-Class" value="net.ahlawat.Main" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete file="${jar.file}" />
+        <delete dir=".temp" />
+    </target>
+</project>
